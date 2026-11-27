@@ -8,7 +8,7 @@ A hand-run Obsidian system for noticing where attention goes across the lasting 
 - `Templates/`: one per kind of note (Seed, Task, Shoot, Branch, Tree) and one per state (Active, Dormant, Blocked, Done, Pruned)
 - `Bases/`: the views (Seeds, Tasks, Shoots, Branches, Trees), embedded by name
 - `Tending.md`: the daily Tending page
-- `obsidian-config/`: property types and a CSS snippet that hides the config folders
+- `obsidian-config/`: property types and two CSS snippets that hide the config folders (`Templates/`, `Bases/`), one each
 - `examples/`: a dummy Seed, Tasks, Shoot, Branches and Tree, to see the views working
 
 **This repo holds templates, views and documentation only. Nothing personal or work-related, ever; examples are dummies with generic names.**

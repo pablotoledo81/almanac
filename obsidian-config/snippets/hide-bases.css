@@ -1,0 +1,2 @@
+/* Almanac: hide the Bases folder from the file explorer. */
+.nav-folder:has(> .nav-folder-title[data-path="Bases"]) { display: none; }

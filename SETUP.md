@@ -18,7 +18,7 @@ Check you're in the right vault before copying anything in.
 - Settings → Files & links → Default location for new notes → **In the folder specified below**: `Seeds`.
 - **Bases** on.
 - Settings → Editor → Properties in document → **Hidden** (edit properties from the File properties side panel, or straight in a view's table).
-- Copy `obsidian-config/snippets/hide-templates.css` into `<vault>/.obsidian/snippets/`, then Settings → Appearance → CSS snippets → turn it on. It hides `Templates/` and `Bases/`: they are config. The base files are the views; notes embed them by name.
+- Optional: copy `obsidian-config/snippets/hide-templates.css` and `hide-bases.css` into `<vault>/.obsidian/snippets/`, then Settings → Appearance → CSS snippets → turn on either or both. One hides `Templates/`, the other `Bases/`: they are config. The base files are the views; notes embed them by name.
 - Settings → Hotkeys: give "Templates: Insert template" a hotkey (e.g. Ctrl+T; the steps below assume it).
 - Mobile: Settings → Toolbar → add "Create new note" and "Templates: Insert template". Bookmark `Tending`.
 
