@@ -13,7 +13,7 @@ A hand-run Obsidian system for noticing where attention goes across the lasting 
 
 **This repo holds templates, views and documentation only. Nothing personal or work-related, ever; examples are dummies with generic names.**
 
-Versions are git tags: v2.0 (first prototype), v2.1 (from its feedback), v2.2 (after the retro). v2.1 is a trial: its words and rules may change at v2.2.
+Versions are git tags: `2.0` (first prototype), `2.1` (from its feedback), `2.2` (after the retro). v2.1 is a trial: its words and rules may change at v2.2.
 
 ## Words (v2.1 trial)
 
