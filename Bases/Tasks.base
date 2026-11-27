@@ -1,54 +1,76 @@
 formulas:
   since: 'if(today().format("ddd") == "Mon", today() - "3d", today() - "1d")'
+  due: 'if(!due_on.isEmpty() && due_on <= today(), "due", "")'
+  stateRank: 'if(state == "Active", 0, if(state == "Blocked", 1, if(state == "Dormant", 2, if(state == "Done", 3, 4))))'
 filters:
   and:
     - '!file.inFolder("Templates")'
     - 'type == "task"'
 views:
   - type: table
-    name: For this
+    name: For this Shoot
     filters:
       and:
         - file.hasLink(this.file)
-        - 'done.isEmpty() || done >= formula.since'
-    order: [file.name, due, blocked, done]
+        - or:
+            - 'state != "Done" && state != "Pruned"'
+            - 'finished_on >= formula.since'
+    order: [file.name, state, formula.due, finished_on]
     sort:
-      - property: done
-        direction: ASC
-      - property: due
+      - property: formula.stateRank
         direction: ASC
   - type: table
-    name: All for this
+    name: All for this Shoot
     filters:
       and:
         - file.hasLink(this.file)
-    order: [file.name, due, blocked, done]
+    order: [file.name, state, created_on, finished_on]
     sort:
-      - property: done
+      - property: formula.stateRank
+        direction: ASC
+      - property: finished_on
         direction: DESC
   - type: table
     name: Standup
     filters:
       or:
-        - 'done >= formula.since'
-        - done.isEmpty()
+        - 'state != "Done" && state != "Pruned"'
+        - 'finished_on >= formula.since'
     groupBy:
-      property: for
+      property: shoot
       direction: ASC
-    order: [file.name, done, blocked, due]
+    order: [file.name, state, formula.due, finished_on]
+    sort:
+      - property: formula.stateRank
+        direction: ASC
+  - type: table
+    name: Open
+    filters:
+      and:
+        - 'state != "Done" && state != "Pruned"'
+    groupBy:
+      property: shoot
+      direction: ASC
+    order: [file.name, state, formula.due]
+    sort:
+      - property: formula.stateRank
+        direction: ASC
   - type: table
     name: Loose
     filters:
       and:
-        - for.isEmpty()
-        - done.isEmpty()
-    order: [file.name, due]
+        - shoot.isEmpty()
+        - 'state != "Done" && state != "Pruned"'
+    order: [file.name, state, formula.due]
+    sort:
+      - property: formula.stateRank
+        direction: ASC
   - type: table
-    name: All open
+    name: Pruned
     filters:
       and:
-        - done.isEmpty()
-    order: [file.name, for, due, blocked]
+        - 'state == "Pruned"'
+    order: [file.name, shoot, finished_on]
     sort:
-      - property: due
+      - property: finished_on
         direction: ASC

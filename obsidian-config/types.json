@@ -1,17 +1,15 @@
 {
   "types": {
     "type": "text",
-    "for": "text",
-    "tree": "text",
+    "shoot": "text",
     "branch": "text",
+    "tree": "text",
     "state": "text",
-    "due": "date",
-    "done": "date",
-    "blocked": "checkbox",
-    "tended": "date",
-    "ended": "date",
-    "visited": "date",
-    "next_visit": "date",
+    "created_on": "date",
+    "due_on": "date",
+    "finished_on": "date",
+    "visited_on": "date",
+    "next_visit_on": "date",
     "interval_days": "number"
   }
 }

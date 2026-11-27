@@ -1,3 +1,4 @@
 ---
-done: {{date:YYYY-MM-DD}}
+state: Done
+finished_on: {{date:YYYY-MM-DD}}
 ---

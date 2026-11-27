@@ -1,5 +1,5 @@
 formulas:
-  visitDue: 'if(!next_visit.isEmpty() && next_visit < today(), "Visit due", "")'
+  visitDue: 'if(!next_visit_on.isEmpty() && next_visit_on < today(), "Visit due", "")'
 filters:
   and:
     - '!file.inFolder("Templates")'
@@ -7,7 +7,7 @@ filters:
 views:
   - type: table
     name: Trees
-    order: [file.name, state, formula.visitDue, visited, next_visit, interval_days]
+    order: [file.name, state, formula.visitDue, visited_on, next_visit_on, interval_days]
     sort:
-      - property: next_visit
+      - property: next_visit_on
         direction: ASC

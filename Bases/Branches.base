@@ -1,0 +1,36 @@
+filters:
+  and:
+    - '!file.inFolder("Templates")'
+    - 'type == "branch"'
+views:
+  - type: table
+    name: On this Tree
+    filters:
+      and:
+        - file.hasLink(this.file)
+        - 'state != "Pruned"'
+    order: [file.name, state]
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: All Branches
+    filters:
+      and:
+        - 'state != "Pruned"'
+    groupBy:
+      property: tree
+      direction: ASC
+    order: [file.name, state, tree]
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: Pruned
+    filters:
+      and:
+        - 'state == "Pruned"'
+    order: [file.name, tree, finished_on]
+    sort:
+      - property: finished_on
+        direction: ASC

@@ -1,18 +1,21 @@
 ---
 type: tree
 state: Healthy
-visited:
-next_visit:
+visited_on:
+next_visit_on:
 interval_days: 7
 ---
+## Roots
+
+## North Stars
+
 ## Branches
-- [ ] 
+![[Branches.base#On this Tree]]
 
-## Shoots
-![[Shoots.base#On this Tree]]
+## Questions
 
-## Tasks
-![[Tasks.base#For this]]
+## Links
 
-## Remarks
-<!-- newest first: - YYYY-MM-DD · State · how's it going here? -->
+## Tree Remarks
+| Remark | Visited On |
+| ------ | ---------- |

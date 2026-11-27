@@ -1,8 +1,11 @@
 ---
 type: task
-for: "[[Example Shoot]]"
-due:
-done:
-blocked: false
+shoot: "[[Example Shoot]]"
+state: Active
+created_on: 2026-01-01
+due_on:
+finished_on:
 ---
-Details and links go here.
+Details go here.
+
+## Links

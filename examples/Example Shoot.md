@@ -1,13 +1,19 @@
 ---
 type: shoot
-tree: "[[Example Tree]]"
-branch: Example Branch A
+branch: "[[Example Branch A]]"
 state: Active
-tended:
-due:
-ended:
+created_on: 2026-01-01
+due_on:
+finished_on:
 ---
-## Tasks
-![[Tasks.base#For this]]
+## Description
+A short, focused effort that grows Example Branch A.
 
-## Notes
+## Goals
+
+## Tasks
+![[Tasks.base#For this Shoot]]
+
+## Questions
+
+## Links

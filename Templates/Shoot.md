@@ -1,13 +1,18 @@
 ---
 type: shoot
-tree:
 branch:
-state: Active
-tended:
-due:
-ended:
+state: Dormant
+created_on: {{date:YYYY-MM-DD}}
+due_on:
+finished_on:
 ---
-## Tasks
-![[Tasks.base#For this]]
+## Description
 
-## Notes
+## Goals
+
+## Tasks
+![[Tasks.base#For this Shoot]]
+
+## Questions
+
+## Links
