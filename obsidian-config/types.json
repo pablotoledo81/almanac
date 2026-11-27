@@ -1,0 +1,17 @@
+{
+  "types": {
+    "type": "text",
+    "for": "text",
+    "tree": "text",
+    "branch": "text",
+    "state": "text",
+    "due": "date",
+    "done": "date",
+    "blocked": "checkbox",
+    "tended": "date",
+    "ended": "date",
+    "visited": "date",
+    "next_visit": "date",
+    "interval_days": "number"
+  }
+}

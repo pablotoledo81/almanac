@@ -1,0 +1,13 @@
+formulas:
+  visitDue: 'if(!next_visit.isEmpty() && next_visit < today(), "Visit due", "")'
+filters:
+  and:
+    - '!file.inFolder("Templates")'
+    - 'type == "tree"'
+views:
+  - type: table
+    name: Trees
+    order: [file.name, state, formula.visitDue, visited, next_visit, interval_days]
+    sort:
+      - property: next_visit
+        direction: ASC

@@ -1,0 +1,3 @@
+/* Almanac prototype: hide config folders (Templates, Bases) from the file explorer. */
+.nav-folder:has(> .nav-folder-title[data-path="Templates"]),
+.nav-folder:has(> .nav-folder-title[data-path="Bases"]) { display: none; }

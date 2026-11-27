@@ -1,0 +1,11 @@
+filters:
+  and:
+    - '!file.inFolder("Templates")'
+    - 'type == "seed"'
+views:
+  - type: table
+    name: Seeds
+    order: [file.name, file.ctime]
+    sort:
+      - property: file.ctime
+        direction: ASC

@@ -1,0 +1,47 @@
+formulas:
+  pastDue: 'if(!due.isEmpty() && due < today(), "past due", "")'
+  dueRank: 'if(!due.isEmpty() && due < today(), 0, 1)'
+filters:
+  and:
+    - '!file.inFolder("Templates")'
+    - 'type == "shoot"'
+views:
+  - type: table
+    name: Tending
+    filters:
+      and:
+        - 'state == "Active"'
+    order: [file.name, formula.pastDue, tended, due, tree, branch]
+    sort:
+      - property: formula.dueRank
+        direction: ASC
+      - property: tended
+        direction: ASC
+  - type: table
+    name: Dormant
+    filters:
+      and:
+        - 'state == "Dormant"'
+    order: [file.name, tended, due, tree, branch]
+    sort:
+      - property: tended
+        direction: ASC
+  - type: table
+    name: On this Tree
+    filters:
+      and:
+        - file.hasLink(this.file)
+        - 'state == "Active" || state == "Dormant"'
+    order: [file.name, branch, state, tended, due]
+    sort:
+      - property: branch
+        direction: ASC
+  - type: table
+    name: Ended
+    filters:
+      and:
+        - 'state == "Done" || state == "Pruned"'
+    order: [file.name, state, ended, tree, branch]
+    sort:
+      - property: ended
+        direction: DESC

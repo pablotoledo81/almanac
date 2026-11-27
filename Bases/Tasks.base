@@ -1,0 +1,54 @@
+formulas:
+  since: 'if(today().format("ddd") == "Mon", today() - "3d", today() - "1d")'
+filters:
+  and:
+    - '!file.inFolder("Templates")'
+    - 'type == "task"'
+views:
+  - type: table
+    name: For this
+    filters:
+      and:
+        - file.hasLink(this.file)
+        - 'done.isEmpty() || done >= formula.since'
+    order: [file.name, due, blocked, done]
+    sort:
+      - property: done
+        direction: ASC
+      - property: due
+        direction: ASC
+  - type: table
+    name: All for this
+    filters:
+      and:
+        - file.hasLink(this.file)
+    order: [file.name, due, blocked, done]
+    sort:
+      - property: done
+        direction: DESC
+  - type: table
+    name: Standup
+    filters:
+      or:
+        - 'done >= formula.since'
+        - done.isEmpty()
+    groupBy:
+      property: for
+      direction: ASC
+    order: [file.name, done, blocked, due]
+  - type: table
+    name: Loose
+    filters:
+      and:
+        - for.isEmpty()
+        - done.isEmpty()
+    order: [file.name, due]
+  - type: table
+    name: All open
+    filters:
+      and:
+        - done.isEmpty()
+    order: [file.name, for, due, blocked]
+    sort:
+      - property: due
+        direction: ASC
